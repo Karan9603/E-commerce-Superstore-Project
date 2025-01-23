@@ -47,9 +47,16 @@ group by Category ORDER by Sales DESC;
 --How many unique customers per month are there for the year 2016. (There's a catch here: 
 --contrary to other 'heavier' RDBMS, SQLite does not support the functions YEAR() or MONTH()
 -- to extract the year or the month in a date. You will have to create two new columns: year and month.)
-</sql><sql name="New queries">select * from Customer_Details 
-join Order_Details on Order_Details.Customer_ID = Customer_Details.Customer_ID
-WHERE Customer_Details.Customer_ID = 'AA-10315' ;
+</sql><sql name="New queries*">select * from Customer_Details 
+join Order_Details on Order_Details.Customer_ID = Customer_Details.Customer_ID
+WHERE Customer_Details.Customer_ID = 'AA-10315' ;
+
+select * from Order_Details WHERE Customer_ID = 'AA-10315';
+ORDER by Order Date.ASC;
 
-select * from Order_Details WHERE Customer_ID = 'AA-10315';
-ORDER by Order Date.ASC;</sql><current_tab id="2"/></tab_sql></sqlb_project>
+SELECT sum(Profit) sum_Profit from Product_Sales
+JOIN Order_Details on Order_Details.Order_ID = Product_Sales.Order_ID
+JOIN Customer_Details on Customer_Details.Customer_ID = Order_Details.Customer_ID
+JOIN Customer_address_junction on Customer_address_junction.Customer_ID = Customer_Details.Customer_ID
+JOIN Address_Details on Address_Details.Address_ID= Customer_address_junction.Address_ID
+WHERE Address_Details.State = 'Texas';</sql><current_tab id="2"/></tab_sql></sqlb_project>
